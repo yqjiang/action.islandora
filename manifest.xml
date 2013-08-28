@@ -21,7 +21,7 @@
                 </gui>
                 <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
                 <processing>
-                    <clientCallback prepareModal="true" dialogOpenForm="scheduler-task-form" dialogOkButtonOnly="false" dialogSkipButtons="false">
+                    <clientCallback prepareModal="true" dialogOpenForm="islandora_form" dialogOkButtonOnly="false" dialogSkipButtons="false">
                        <dialogOnOpen><![CDATA[
                            this.currentFormManager = new FormManager();
                            var xmlDefinition = ajaxplorer.getXmlRegistry();
