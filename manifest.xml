@@ -41,6 +41,17 @@
                                 $('islandora_form'),
                                 values,
                                 '');
+                            var conn = new Connexion();
+                            values.set('get_action', 'islandora_ingest');
+                            if(this.currentFormManager.task_id){
+                                values.set('task_id',this.currentFormManager.task_id);
+                            }
+                            conn.setParameters(values);
+                            conn.sendAsync();
+                            conn.onComplete = function(transport){
+                                var res = ajaxplorer.actionBar.parseXmlMessage(transport.responseXML);
+                                if(res) hideLightBox();
+                            };
 
                     
                     ]]></dialogOnComplete>
