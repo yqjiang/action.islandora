@@ -12,7 +12,7 @@
     <registry_contributions>
         <actions>
             <action name="islandora_ingest">
-                <gui text="action.islandora.1" title="action.islandora.1" src="share.png" iconClass="icon-share" hasAccessKey="false">
+                <gui text="action.islandora.title" title="action.islandora.title" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="true" dir="true" recycle="false"
                          actionBar="true" contextMenu="true" infoPanel="false"
                          actionBarGroup="get">
@@ -21,18 +21,29 @@
                 </gui>
                 <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
                 <processing>
-                    <clientCallback prepareModal="true" dialogOpenForm="islandora_form" dialogOkButtonOnly="true" dialogSkipButtons="false"></clientCallback>
-                    <clientForm id="islandora_form"><![CDATA[
-                         <div id="islandora_form" box_width="330">
-                             <div class="dialogLegend" ajxp_message_id="action.islandora.1">AJXP_MESSAGE[action.islandora.1]</div>
-                             <div class="SF_element SF_largeLabel">
-                                <div class="SF_label" ajxp_message_id="action.islandora.2">AJXP_MESSAGE[action.islandora.2]</div>
-                                <input type="text" name="islandora-title" id="islandora-title">
-                             </div>
+                    <clientCallback prepareModal="true" dialogOpenForm="scheduler-task-form" dialogOkButtonOnly="false" dialogSkipButtons="false">
+                       <dialogOnOpen><![CDATA[
+                           this.currentFormManager = new FormManager();
+                           var xmlDefinition = ajaxplorer.getXmlRegistry();
+                           var node = XPathSelectSingleNode(xmlDefinition, 'actions/action[@name="islandora_ingest"]/processing/standardFormDefinition');
 
-                             <textarea class="dialogFocus" style="width:300px;height:80px; margin-top: 5px;" id="islandora_description"></textarea>
-                         </div>
+                           this.currentFormManager.params = this.currentFormManager.parseParameters(node, "param");
+                           this.currentFormManager.createParametersInputs(
+                                $('islandora_form'),
+                                    this.currentFormManager.params,
+                                    true
+                               );
+                           
+                       ]]></dialogOnOpen>
+                        <dialogOnComplete><![CDATA[]]></dialogOnComplete>
+                    </clientCallback>
+                    <clientForm id="islandora_form"><![CDATA[
+                         <div id="islandora_form" box_width="330"></div>
                     ]]></clientForm>
+                    <standardFormDefinition>
+                        <param name="field1" group="Execution Context" label="action.islandora.1" description="action.islandora.1d" type="string" mandatory="true"/>
+                        <param name="field2" group="Execution Context" label="action.islandora.2" description="action.islandora.2d" type="string" mandatory="true"/>
+                    </standardFormDefinition>
                     <serverCallback methodName="switchAction"></serverCallback>
                 </processing>
             </action>
