@@ -35,7 +35,15 @@
                                );
                            
                        ]]></dialogOnOpen>
-                        <dialogOnComplete><![CDATA[]]></dialogOnComplete>
+                        <dialogOnComplete><![CDATA[
+                             var values = new Hash({});
+                            this.currentFormManager.serializeParametersInputs(
+                                $('islandora_form'),
+                                values,
+                                '');
+
+                    
+                    ]]></dialogOnComplete>
                     </clientCallback>
                     <clientForm id="islandora_form"><![CDATA[
                          <div id="islandora_form" box_width="330"></div>
