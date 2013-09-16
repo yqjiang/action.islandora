@@ -12,7 +12,7 @@
     <registry_contributions>
         <actions>
             <action name="islandora_ingest">
-                <gui text="action.islandora.title" title="action.islandora.title" src="share.png" iconClass="icon-share" hasAccessKey="false">
+                <gui text="action.islandora.form_title" title="action.islandora.form_title" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="true" dir="true" recycle="false"
                          actionBar="true" contextMenu="true" infoPanel="false"
                          actionBarGroup="get">
@@ -60,8 +60,48 @@
                          <div id="islandora_form" box_width="330"></div>
                     ]]></clientForm>
                     <standardFormDefinition>
-                        <param name="field1" group="Execution Context" label="action.islandora.1" description="action.islandora.1d" type="string" mandatory="true"/>
-                        <param name="field2" group="Execution Context" label="action.islandora.2" description="action.islandora.2d" type="string" mandatory="true"/>
+                        <param name="title" group="action.islandora.citation" label="action.islandora.title" description="action.islandora.title" type="string" mandatory="true"/>
+                        <param name="identification_number" group="action.islandora.citation" replicationGroup="identification_number" label="action.islandora.identification_number" description="action.islandora.identification_number" type="string" mandatory="true"/>
+                        
+                        <param name="author" group="action.islandora.citation" label="action.islandora.author" description="action.islandora.author" type="string" mandatory="true"/>
+                        <param name="other_contributions" group="action.islandora.citation" label="action.islandora.other_contributions" description="action.islandora.other_contributions" type="string" mandatory="true"/>
+                        
+                        <param name="copyright" group="action.islandora.citation" label="action.islandora.copyright" description="action.islandora.copyright" type="string" mandatory="true"/>
+                        <param name="production_date" group="action.islandora.citation" label="action.islandora.production_date" description="action.islandora.production_date" type="string" mandatory="true"/>
+                        <param name="software" group="action.islandora.citation" label="action.islandora.software" description="action.islandora.software" type="string" mandatory="true"/>
+                        <param name="funding_agency" group="action.islandora.citation" label="action.islandora.funding_agency" description="action.islandora.funding_agency" type="string" mandatory="true"/>
+                        
+                        <param name="collection_details" group="action.islandora.citation" label="action.islandora.collection_details" description="action.islandora.collection_details" type="string" mandatory="true"/>
+                        
+                        <param name="version" group="action.islandora.citation" label="action.islandora.version" description="action.islandora.version" type="string" mandatory="true"/>
+                        
+                        <param name="bibliographical_citation" group="action.islandora.citation" label="action.islandora.bibliographical_citation" description="action.islandora.bibliographical_citation" type="string" mandatory="true"/>
+                        <param name="additional_information" group="action.islandora.citation" label="action.islandora.additional_information" description="action.islandora.additional_information" type="string" mandatory="true"/>
+                        
+                        
+                        <param name="subject" group="action.islandora.study_info" label="action.islandora.subject" description="action.islandora.subject" type="string" mandatory="true"/>
+                        <param name="topic_classification" group="action.islandora.study_info" label="action.islandora.topic_classification" description="action.islandora.topic_classification" type="string" mandatory="true"/>
+                        
+                        <param name="abstract" group="action.islandora.study_info" label="action.islandora.abstract" description="action.islandora.abstract" type="string" mandatory="true"/>
+                        
+                        <param name="time_period" group="action.islandora.study_info" label="action.islandora.time_period" description="action.islandora.time_period" type="string" mandatory="true"/>
+                        <param name="collection_date" group="action.islandora.study_info" label="action.islandora.collection_date" description="action.islandora.collection_date" type="string" mandatory="true"/>
+                        <param name="geographic_coverage" group="action.islandora.study_info" label="action.islandora.geographic_coverage" description="action.islandora.geographic_coverage" type="string" mandatory="true"/>
+                        <param name="data_type" group="action.islandora.study_info" label="action.islandora.data_type" description="action.islandora.data_type" type="string" mandatory="true"/>
+                        
+                        
+                        <param name="collection_method" group="action.islandora.method" label="action.islandora.collection_method" description="action.islandora.collection_method" type="string" mandatory="true"/>
+                        <param name="sources" group="action.islandora.method" label="action.islandora.sources" description="action.islandora.sources" type="string" mandatory="true"/>
+                        
+                        <param name="embargo" group="action.islandora.data_access" label="action.islandora.embargo" description="action.islandora.embargo" type="string" mandatory="true"/>
+                        <param name="confidentiality_declaration" group="action.islandora.data_access" label="action.islandora.confidentiality_declaration" description="action.islandora.confidentiality_declaration" type="string" mandatory="true"/>
+                        <param name="access" group="action.islandora.data_access" label="action.islandora.access" description="action.islandora.access" type="string" mandatory="true"/>
+                       
+                        <param name="file_type" group="action.islandora.file_description" label="action.islandora.file_type" description="action.islandora.file_type" type="string" mandatory="true"/>
+                        <param name="format_description" group="action.islandora.file_description" label="action.islandora.format_description" description="action.islandora.format_description" type="string" mandatory="true"/>
+                                                
+                        <param name="other_materials" group="action.islandora.other_materials" label="action.islandora.other_materials" description="action.islandora.other_materials" type="string" mandatory="true"/>
+                        
                     </standardFormDefinition>
                     <serverCallback methodName="switchAction"></serverCallback>
                 </processing>
