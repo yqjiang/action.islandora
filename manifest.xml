@@ -21,10 +21,6 @@
                 </context>
                 <selectionContext dir="true" file="true" recycle="false" unique="true"></selectionContext>
                 </gui>
-                <dialogOnOpen><![CDATA[
-                   var datepicker = new DatePicker(oForm);
-                   datepicker.
-                ]]></dialogOnOpen>
                 <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
                 <processing>
                     <clientCallback prepareModal="true" ><![CDATA[
