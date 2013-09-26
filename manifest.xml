@@ -20,7 +20,7 @@
                 </gui>
                 <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
                 <processing>
-                    <clientCallback prepareModal="true" dialogOpenForm="islandora_form" dialogOkButtonOnly="true" dialogSkipButtons="false">
+                    <clientCallback prepareModal="true" dialogOpenForm="islandora_form" dialogSkipButtons="true">
                       <dialogOnOpen><![CDATA[
                         selection = ajaxplorer.getUserSelection();
                         query_string = Object.toQueryString({
@@ -45,7 +45,7 @@
                       ]]></dialogOnComplete>
                     </clientCallback>
                     <clientForm id="islandora_form"><![CDATA[
-                      <iframe id="islandora_form" width="800" height="400"></iframe>
+                      <iframe id="islandora_form" box_width="825" width="800" height="400"></iframe>
                     ]]></clientForm>
                 </processing>
             </action>
