@@ -26,6 +26,7 @@
                         query_string = Object.toQueryString({
                           is_dir: selection._bDir,
                           // Point the remote server back here...
+                          // XXX: Should probably be done dynamically.
                           download_base_url: '/ajaxplorer/index.php',
                           download_query_params: Object.toQueryString({
                             get_action: 'download',
@@ -34,8 +35,10 @@
                           })
                         });
 
-                        // TODO: Point at our ingest callback Islandora-side.
-                        $('islandora_form').src = '/sfudora/ingest/whatever?' + query_string;
+                        // Point at our ingest callback Islandora-side.
+                        // XXX: Should probably be done dynamically/using some
+                        // form of configuration.
+                        $('islandora_form').src = '/sfudora/ingest?' + query_string;
                       ]]></dialogOnOpen>
                       <dialogOnComplete><![CDATA[
                           hideLightBox();
