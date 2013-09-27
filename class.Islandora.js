@@ -1,4 +1,0 @@
-Class.create("Islandora", {
-
-
-});
