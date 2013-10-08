@@ -25,6 +25,7 @@
                         selection = ajaxplorer.getUserSelection();
                         query_string = Object.toQueryString({
                           is_dir: selection._bDir,
+			  repo_id: ajaxplorer.repositoryId,
                           // Point the remote server back here...
                           // XXX: Should probably be done dynamically.
                           download_base_url: '/ajaxplorer/index.php',
