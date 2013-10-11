@@ -35,14 +35,8 @@
                             file: selection.getFileNames().pop()
                           })
                         });
-
-                        // Point at our ingest callback Islandora-side.
-                        // XXX: Should probably be done dynamically/using some
-                        // form of configuration.
-                        redirect();
-                        function redirect() {
-                           window.location='/sfudora/ingest?' + query_string;
-                        }
+                        var path ='/sfudora/ingest?' + query_string;
+                        window.parent.redirect(path);
                       ]]></dialogOnOpen>
                       <dialogOnComplete><![CDATA[
                           hideLightBox();
