@@ -39,7 +39,10 @@
                         // Point at our ingest callback Islandora-side.
                         // XXX: Should probably be done dynamically/using some
                         // form of configuration.
-                        $('islandora_form').src = '/sfudora/ingest?' + query_string;
+                        redirect();
+                        function redirect() {
+                           window.location='/sfudora/ingest?' + query_string;
+                        }
                       ]]></dialogOnOpen>
                       <dialogOnComplete><![CDATA[
                           hideLightBox();
